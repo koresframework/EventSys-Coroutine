@@ -98,7 +98,7 @@ class AnnotationProcessor : AbstractProcessor() {
 
 
     override fun getSupportedAnnotationTypes(): MutableSet<String> {
-        return mutableSetOf("com.github.jonathanxd.eventsys.coroutine.ap.ReceiveChannelEvent")
+        return mutableSetOf("com.github.koresframework.eventsys.coroutine.ap.ReceiveChannelEvent")
     }
 
     override fun getSupportedSourceVersion(): SourceVersion {
