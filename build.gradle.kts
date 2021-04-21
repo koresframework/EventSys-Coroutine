@@ -4,11 +4,12 @@ plugins {
     id("com.github.hierynomus.license") version "0.15.0"
     kotlin("jvm") version "1.4.32"
     id("java")
+    id("maven")
     application
 }
 
 group = "com.github.jonathanxd"
-version = "1.0.0-SNAPSHOT"
+version = "1.0.3-SNAPSHOT"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_9
