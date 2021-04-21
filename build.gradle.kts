@@ -2,12 +2,18 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("com.github.hierynomus.license") version "0.15.0"
-    kotlin("jvm") version "1.4.31"
+    kotlin("jvm") version "1.4.32"
+    id("java")
     application
 }
 
 group = "com.github.jonathanxd"
 version = "1.0.0-SNAPSHOT"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_9
+    targetCompatibility = JavaVersion.VERSION_1_9
+}
 
 repositories {
     mavenCentral()
@@ -35,7 +41,7 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "13"
+    kotlinOptions.jvmTarget = "9"
 }
 
 tasks {
