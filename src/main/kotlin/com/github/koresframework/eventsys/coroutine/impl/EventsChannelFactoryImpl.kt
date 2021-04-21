@@ -24,9 +24,9 @@
  *      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *      THE SOFTWARE.
  */
-package com.github.jonathanxd.eventsys.coroutine.impl
+package com.github.koresframework.eventsys.coroutine.impl
 
-import com.github.jonathanxd.eventsys.coroutine.EventsChannelFactory
+import com.github.koresframework.eventsys.coroutine.EventsChannelFactory
 import com.github.jonathanxd.iutils.type.TypeInfo
 import com.github.koresframework.eventsys.error.ExceptionListenError
 import com.github.koresframework.eventsys.event.Event

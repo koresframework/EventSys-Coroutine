@@ -24,7 +24,7 @@
  *      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *      THE SOFTWARE.
  */
-package com.github.jonathanxd.eventsys.coroutine.ap
+package com.github.koresframework.eventsys.coroutine.ap
 
 import com.github.jonathanxd.kores.extra.getUnificationInstance
 import com.github.jonathanxd.kores.generic.GenericSignature

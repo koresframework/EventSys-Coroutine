@@ -24,27 +24,23 @@
  *      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *      THE SOFTWARE.
  */
-package com.github.jonathanxd.eventsys.coroutine
-
-import com.github.jonathanxd.iutils.kt.type
-import com.github.jonathanxd.iutils.kt.typeInfo
-import com.github.jonathanxd.iutils.type.TypeInfo
-import com.github.jonathanxd.iutils.type.TypeParameterProvider
-import com.github.koresframework.eventsys.event.Event
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.channels.ReceiveChannel
-import java.lang.reflect.Type
+package com.github.koresframework.eventsys.coroutine
 
 /**
- * Interface for Event [Channel] factory.
+ * Generator of implementation of stub interfaces that provides `ReceiveChannel<Event>` of event handlers.
+ * This is commonly used with interface specified in [ChannelEvent annotation][com.github.jonathanxd.eventsys.coroutine.ap.ReceiveChannelEvent].
+ *
+ * @see com.github.jonathanxd.eventsys.coroutine.impl.ReceiveChannelMethodInterfaceGeneratorImpl
  */
-interface EventsChannelFactory {
+interface ReceiveChannelMethodInterfaceGenerator {
+    /**
+     * EventsChannelFactory to use to generate ReceiveChannels
+     */
+    val factory: EventsChannelFactory
 
     /**
-     * Creates a channel to receive events of provided [event type][eventType].
+     * Generates implementation of [itf] and creates an instance.
      */
-    fun <T: Event> channel(eventType: Type): ReceiveChannel<T>
-}
+    fun <T> create(itf: Class<T>): T
 
-inline fun <reified T: Event> EventsChannelFactory.channel() =
-    this.channel<T>(type<T>())
+}

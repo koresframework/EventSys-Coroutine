@@ -24,23 +24,22 @@
  *      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *      THE SOFTWARE.
  */
-package com.github.jonathanxd.eventsys.coroutine
+package com.github.koresframework.eventsys.coroutine.ap
+
+import com.github.koresframework.eventsys.ap.Factory
+import com.github.koresframework.eventsys.coroutine.ReceiveChannelMethodInterfaceGenerator
+import kotlinx.coroutines.channels.ReceiveChannel
 
 /**
- * Generator of implementation of stub interfaces that provides `ReceiveChannel<Event>` of event handlers.
- * This is commonly used with interface specified in [ChannelEvent annotation][com.github.jonathanxd.eventsys.coroutine.ap.ReceiveChannelEvent].
+ * Annotation used to enable generation of an abstract method in [value] that returns [ReceiveChannel] of annotated event class.
  *
- * @see com.github.jonathanxd.eventsys.coroutine.impl.ReceiveChannelMethodInterfaceGeneratorImpl
+ * This annotation does a work similar to [Factory].
+ * The generated interface depends on [ReceiveChannel Runtime Code Generation][ReceiveChannelMethodInterfaceGenerator] to be implemented.
+ *
+ * @property value Name of target class to add event listeners.
+ * @property methodName Name of the method of observable event method. Default is the same as de-capitalized annotated type.
  */
-interface ReceiveChannelMethodInterfaceGenerator {
-    /**
-     * EventsChannelFactory to use to generate ReceiveChannels
-     */
-    val factory: EventsChannelFactory
-
-    /**
-     * Generates implementation of [itf] and creates an instance.
-     */
-    fun <T> create(itf: Class<T>): T
-
-}
+@Target(AnnotationTarget.CLASS)
+@Retention(AnnotationRetention.SOURCE)
+annotation class ReceiveChannelEvent(val value: String,
+                                     val methodName: String = "")

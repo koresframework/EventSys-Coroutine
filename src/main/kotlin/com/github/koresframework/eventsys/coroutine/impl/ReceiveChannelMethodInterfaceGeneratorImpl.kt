@@ -24,10 +24,10 @@
  *      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *      THE SOFTWARE.
  */
-package com.github.jonathanxd.eventsys.coroutine.impl
+package com.github.koresframework.eventsys.coroutine.impl
 
-import com.github.jonathanxd.eventsys.coroutine.EventsChannelFactory
-import com.github.jonathanxd.eventsys.coroutine.ReceiveChannelMethodInterfaceGenerator
+import com.github.koresframework.eventsys.coroutine.EventsChannelFactory
+import com.github.koresframework.eventsys.coroutine.ReceiveChannelMethodInterfaceGenerator
 import com.github.jonathanxd.iutils.type.TypeUtil
 import com.github.jonathanxd.kores.Instructions
 import com.github.jonathanxd.kores.base.Access
@@ -59,7 +59,8 @@ import java.lang.reflect.Type
  * This implementation uses *CodeProxy* [DirectInvocationCustom] to generate invocations, this
  * means that it generates direct invocation to methods (no reflection, no method handle).
  */
-class ReceiveChannelMethodInterfaceGeneratorImpl(override val factory: EventsChannelFactory) : ReceiveChannelMethodInterfaceGenerator {
+class ReceiveChannelMethodInterfaceGeneratorImpl(override val factory: EventsChannelFactory) :
+    ReceiveChannelMethodInterfaceGenerator {
 
     override fun <T> create(itf: Class<T>): T =
             KoresProxy.newProxyInstance<T>(arrayOf(), arrayOf()) {

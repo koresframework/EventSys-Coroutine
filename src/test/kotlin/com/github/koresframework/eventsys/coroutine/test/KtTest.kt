@@ -24,10 +24,10 @@
  *      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *      THE SOFTWARE.
  */
-package com.github.jonathanxd.eventsys.coroutine.test
+package com.github.koresframework.eventsys.coroutine.test
 
-import com.github.jonathanxd.eventsys.coroutine.channel
-import com.github.jonathanxd.eventsys.coroutine.impl.EventsChannelFactoryImpl
+import com.github.koresframework.eventsys.coroutine.channel
+import com.github.koresframework.eventsys.coroutine.impl.EventsChannelFactoryImpl
 import com.github.koresframework.eventsys.event.Event
 import com.github.koresframework.eventsys.event.EventListener
 import com.github.koresframework.eventsys.event.annotation.Name
@@ -67,10 +67,10 @@ class KtTest {
             var evts = 0
 
             GlobalScope.launch {
-                channel.consumeAsFlow().filter { it.user.age >= 18 }.onEach {
+                channel.consumeAsFlow().filter { it.user.age >= 18 }.collect {
                     assertEquals(it.user.name, "UserB")
                     ++evts
-                }.toList()
+                }
             }
 
             manager.dispatch(myEventFactory.createConnectEvent(User("UserA", 10)), this)

@@ -24,11 +24,11 @@
  *      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *      THE SOFTWARE.
  */
-package com.github.jonathanxd.eventsys.coroutine.test
+package com.github.koresframework.eventsys.coroutine.test
 
-import com.github.jonathanxd.eventsys.coroutine.channel
-import com.github.jonathanxd.eventsys.coroutine.impl.EventsChannelFactoryImpl
-import com.github.jonathanxd.eventsys.coroutine.impl.ReceiveChannelMethodInterfaceGeneratorImpl
+import com.github.koresframework.eventsys.coroutine.channel
+import com.github.koresframework.eventsys.coroutine.impl.EventsChannelFactoryImpl
+import com.github.koresframework.eventsys.coroutine.impl.ReceiveChannelMethodInterfaceGeneratorImpl
 import com.github.koresframework.eventsys.ap.Factory
 import com.github.koresframework.eventsys.event.Event
 import com.github.koresframework.eventsys.event.EventListener

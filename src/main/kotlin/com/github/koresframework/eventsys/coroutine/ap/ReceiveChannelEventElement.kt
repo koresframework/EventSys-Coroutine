@@ -24,22 +24,14 @@
  *      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *      THE SOFTWARE.
  */
-package com.github.jonathanxd.eventsys.coroutine.ap
+package com.github.koresframework.eventsys.coroutine.ap
 
-import com.github.koresframework.eventsys.ap.Factory
-import com.github.jonathanxd.eventsys.coroutine.ReceiveChannelMethodInterfaceGenerator
-import kotlinx.coroutines.channels.ReceiveChannel
+import com.github.jonathanxd.kores.generic.GenericSignature
+import java.lang.reflect.Type
+import javax.lang.model.element.TypeElement
 
-/**
- * Annotation used to enable generation of an abstract method in [value] that returns [ReceiveChannel] of annotated event class.
- *
- * This annotation does a work similar to [Factory].
- * The generated interface depends on [ReceiveChannel Runtime Code Generation][ReceiveChannelMethodInterfaceGenerator] to be implemented.
- *
- * @property value Name of target class to add event listeners.
- * @property methodName Name of the method of observable event method. Default is the same as de-capitalized annotated type.
- */
-@Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.SOURCE)
-annotation class ReceiveChannelEvent(val value: String,
-                                     val methodName: String = "")
+data class ReceiveChannelEventElement(val typeName: String,
+                                      val methodName: String,
+                                      val signature: GenericSignature,
+                                      val type: Type,
+                                      val origin: TypeElement)
